@@ -41,4 +41,9 @@ if __name__ == "__main__":
 
 #Complejidad O(n log n)
 
-    # complejidad O(n log n)
+#T(n) = 2T(n/2) +Θ(n)
+# a = 2
+# b = 2
+# f(n) = Θ(n)
+#compamos con n^log base b^a
+# n^log base 2^2 = n^1 = n
