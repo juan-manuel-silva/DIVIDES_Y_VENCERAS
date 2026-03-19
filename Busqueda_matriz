@@ -1,0 +1,37 @@
+def buscar(matriz, n, x):
+    i = 0
+    j = n - 1
+
+    while i < n and j >= 0:
+        if matriz[i][j] == x:
+            return True
+        elif x < matriz[i][j]:
+            j -= 1  # izquierda
+        else:
+            i += 1  # abajo
+
+    return False
+
+
+def main():
+    matriz = [
+        [1, 2, 3, 4],
+        [5, 6, 7, 8],
+        [9, 10, 11, 12],
+        [13, 14, 16, 17]
+    ]
+
+    n = len(matriz)
+
+    x = int(input("Ingrese el número a buscar: "))
+
+    if buscar(matriz, n, x):
+        print("El número SI está en la matriz.")
+    else:
+        print("El número NO está en la matriz.")
+
+
+if __name__ == "__main__":
+    main()
+
+# complejidad O(n)
