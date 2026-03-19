@@ -1,0 +1,39 @@
+def karatsuba(x, y):
+
+    x = str(x)
+    y = str(y)
+
+
+    if len(x) == 1 or len(y) == 1:
+        return int(x) * int(y)
+
+    # Igualamos tamaños
+    n = max(len(x), len(y))
+    m = n // 2
+
+    # Dividir los números
+    high1, low1 = int(x[:-m] or 0), int(x[-m:])
+    high2, low2 = int(y[:-m] or 0), int(y[-m:])
+
+    # 3 llamadas recursivas
+    z0 = karatsuba(low1, low2)
+    z1 = karatsuba((low1 + high1), (low2 + high2))
+    z2 = karatsuba(high1, high2)
+
+    # Combinar resultados
+    return (z2 * 10**(2*m)) + ((z1 - z2 - z0) * 10**m) + z0
+
+
+if __name__ == "__main__":
+    a = 1234
+    b = 5678
+
+    resultado = karatsuba(a, b)
+
+    print("Número 1:", a)
+    print("Número 2:", b)
+    print("Resultado:", resultado)
+
+#Complegidad O(n(log base 2^3)) = O(n log 1585)
+
+# complejidad o(n^(log base 2^3)) = o(n^1585)
