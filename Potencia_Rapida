@@ -1,0 +1,23 @@
+def potencia_rapida(base, exponente):
+
+    if exponente == 0:
+        return 1
+
+    # Caso recursivo
+    mitad = potencia_rapida(base, exponente // 2)
+
+    if exponente % 2 == 0:
+        return mitad * mitad
+    else:
+        return base * mitad * mitad
+
+
+if __name__ == "__main__":
+    base = 2
+    exponente = 10
+
+    resultado = potencia_rapida(base, exponente)
+
+    print(f"{base}^{exponente} =", resultado)
+    
+    # complejidad o(log n)
